@@ -11,137 +11,18 @@
     </div>
         <div class="game-wrapper">
           <div class="game">
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+            <template v-for="(item,index) in createCards" :key="index">
+              <div class="card-wrap" :data-title="getImgTitle(item)" >
+                <div class="card"  @click="test">
+                  <div class="card-face card-front-face">
+                    <img :src="front_face_img" alt="">
+                  </div>
+                  <div class="card-face card-back-face">
+                    <img :src="getImgUrl(item)"/>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
-
-            <div class="card-wrap">
-              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
-                <div class="card-face card-front-face">
-                  <img src="../src/assets/img/information.svg" alt="">
-                </div>
-                <div class="card-face card-back-face">
-                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
-                </div>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
       </div>
@@ -149,22 +30,65 @@
 </template>
 
 <script>
+import levels from '@/assets/json/levels.json'
 
 export default {
   name: 'App',
  data(){
     return{
       status:false,
+      front_face_img:null,
+      baseUrl:process.env.VUE_APP_BASE_URL,
+      levels:levels,
+      levelNo:0,
+      selectItems:[],
     }
  },
+  created() {
+    this.front_face_img=this.getImgUrl("information.svg");
+  },
+  computed:{
+    createCards(){
+      let cards=[];
+      let row=this.levels[this.levelNo].row;
+      let col=this.levels[this.levelNo].col;
+      let imgCount=this.levels[this.levelNo].img.length;
+      while (cards.length!==row*col){
+        let randomPos = Math.floor(Math.random() * imgCount);
+        let img=this.levels[this.levelNo].img[randomPos];
+        var count = cards.filter(item => item === img).length;
+        if (count<2){
+          cards.push(this.levels[this.levelNo].img[randomPos]);
+        }
+      }
+      return cards
+    },
+  },
   methods:{
-    test(){
-      this.status=!this.status
-    }
+    getImgTitle(pic){
+      return pic.split('/').reverse()[0];
+    },
+    getImgUrl(pic) {
+      return require(`./assets/img/${pic}`)
+    },
+    checkItemsMatch(){
+      let status= this.selectItems[0]===this.selectItems[1] ? true : false;
+      this.selectItems=[];
+      return status;
+    },
+    test(event){
+      let item=event.target.parentNode.parentNode;
+      item.classList.toggle('is-flipped')
+      let itemTitle=item.parentNode.getAttribute('data-title');
+      this.selectItems.push(itemTitle);
+      if (this.selectItems.length==2){
+        console.log(this.checkItemsMatch())
+      }
+    },
   }
 }
 </script>
 
-<style lang='scss' >
+<style lang='scss'>
 @import 'assets/scss/style';
 </style>

@@ -1,0 +1,12 @@
+[{
+  "img": [
+    "browsers/chrome.svg",
+    "browsers/brave.svg",
+    "browsers/safari.svg",
+    "browsers/firefox.svg",
+    "browsers/opera.svg",
+    "browsers/internet-explorer.svg"
+  ],
+  "row": 4,
+  "col": 3
+}]

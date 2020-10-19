@@ -54,6 +54,7 @@ img{
   -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
   border-radius: .6rem;
+  background-color: red;
 }
 .card-face{
   position: absolute;
@@ -64,15 +65,13 @@ img{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
+  background-color: yellow;
 }
 .card-front-face{
-  img{
-    color: #fff;
-  }
 }
 .card-back-face {
   transform: rotateY( 180deg );
 }
-.card.is-flipped {
+.card.is-flipped,.card.open {
   transform: rotateY(180deg);
 }
