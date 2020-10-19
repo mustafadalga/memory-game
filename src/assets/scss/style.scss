@@ -1,0 +1,78 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 10px;
+}
+body{
+  background-color:#d500f9;
+}
+img{
+  width: 100%;
+  max-width: 100%;
+}
+.container{
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.game-status{
+  margin:1rem 0 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+.game-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game{
+  width: 100%;
+  max-width: 120rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+}
+.card-wrap{
+  flex: 0 1 calc(12.5% - 1rem);
+  perspective: 600px;
+  height:8rem;
+  background-color: rgba(255,255,255,.1);
+}
+.card{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  border-radius: .6rem;
+}
+.card-face{
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  width: calc(100% - .5rem);
+  height: calc(100% - .5rem);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+}
+.card-front-face{
+  img{
+    color: #fff;
+  }
+}
+.card-back-face {
+  transform: rotateY( 180deg );
+}
+.card.is-flipped {
+  transform: rotateY(180deg);
+}

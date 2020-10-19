@@ -1,26 +1,170 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <div class="container">
+    <div class="game-status">
+      <div class="game-level">
+        <span>1</span>
+      </div>
+      <div class="game-score">
+        <span>124</span>
+      </div>
+    </div>
+        <div class="game-wrapper">
+          <div class="game">
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <div class="card " :class="status ? 'is-flipped' : ''" @click="test">
+                <div class="card-face card-front-face">
+                  <img src="../src/assets/img/information.svg" alt="">
+                </div>
+                <div class="card-face card-back-face">
+                  <img src="https://marina-ferreira.github.io/memory-game/img/js-badge.svg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+ data(){
+    return{
+      status:false,
+    }
+ },
+  methods:{
+    test(){
+      this.status=!this.status
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss' >
+@import 'assets/scss/style';
 </style>
