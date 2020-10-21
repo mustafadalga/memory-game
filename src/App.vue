@@ -3,7 +3,7 @@
   <div class="container">
     <div class="game-status">
       <div class="game-level">
-        <span>1</span>
+        <span>Level {{ levelNo+1 }}</span>
       </div>
       <div class="game-score">
         <span>124</span>
@@ -12,17 +12,19 @@
         <div class="game-wrapper">
           <div class="game">
             <template v-for="(item,index) in createCards" :key="index">
-              <div class="card-wrap" :data-title="getImgTitle(item)" >
-                <div class="card"  @click="test">
-                  <div class="card-face card-front-face">
-                    <img :src="front_face_img" alt="">
+              <div class="card-wrap" :data-title="getImgTitle(item)">
+                <div class="card">
+                  <div class="card-face card-front-face"  @click="flipCard" >
+                    <img :src="front_face_img" alt="" >
                   </div>
                   <div class="card-face card-back-face">
-                    <img :src="getImgUrl(item)"/>
+                    <img :src="getImgUrl(item)" />
                   </div>
                 </div>
               </div>
             </template>
+
+
           </div>
         </div>
       </div>
@@ -39,12 +41,15 @@ export default {
       status:false,
       front_face_img:null,
       baseUrl:process.env.VUE_APP_BASE_URL,
-      levels:levels,
-      levelNo:0,
-      selectItems:[],
+      levels:[],
+      levelNo:8,
+      firstCard:null,
+      secondCard:null,
+      lockStatus:false,
     }
  },
   created() {
+    this.levels=levels
     this.front_face_img=this.getImgUrl("information.svg");
   },
   computed:{
@@ -61,6 +66,7 @@ export default {
           cards.push(this.levels[this.levelNo].img[randomPos]);
         }
       }
+      console.log(cards)
       return cards
     },
   },
@@ -71,19 +77,59 @@ export default {
     getImgUrl(pic) {
       return require(`./assets/img/${pic}`)
     },
-    checkItemsMatch(){
-      let status= this.selectItems[0]===this.selectItems[1] ? true : false;
-      this.selectItems=[];
+    checkCardsMatch(){
+      if (!(this.firstCard && this.secondCard)) return ;
+      let status= this.firstCard.title==this.secondCard.title ? true : false;
+      console.log(status)
       return status;
     },
-    test(event){
-      let item=event.target.parentNode.parentNode;
-      item.classList.toggle('is-flipped')
-      let itemTitle=item.parentNode.getAttribute('data-title');
-      this.selectItems.push(itemTitle);
-      if (this.selectItems.length==2){
-        console.log(this.checkItemsMatch())
+    unflipCards(){
+      setTimeout(()=>{
+        this.firstCard.card.classList.remove('is-flipped')
+        this.secondCard.card.classList.remove('is-flipped')
+        this.resetCards()
+      },1500)
+    },
+    selectCard(item){
+      if (this.firstCard===null){
+        this.firstCard={
+          'card':item,
+          'title':item.parentNode.getAttribute('data-title')
+        };
+        return
       }
+      this.secondCard={
+        'card':item,
+        'title':item.parentNode.getAttribute('data-title')
+      };
+    },
+    isSelectedCards(){
+      if(this.firstCard && this.secondCard){
+        this.lockStatus=true
+        return true;
+      }
+      this.lockStatus=false
+      return false;
+    },
+    resetCards(){
+      this.firstCard=null;
+      this.secondCard=null;
+      this.lockStatus=false
+    },
+    flipCard(event){
+      this.levelNo++;
+      console.log(event)
+/*      if (this.lockStatus) return ;
+        let item=event.target.parentNode.parentNode;
+        item.classList.add('is-flipped')
+        this.selectCard(item)
+        if (!this.isSelectedCards()) return ;
+
+        if (this.checkCardsMatch()){
+          this.resetCards()
+        }else{
+          this.unflipCards()
+        }*/
     },
   }
 }
