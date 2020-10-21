@@ -1,4 +1,5 @@
 [{
+  "title": "Browsers",
   "img": [
     "browsers/chrome.svg",
     "browsers/brave.svg",
@@ -9,4 +10,204 @@
   ],
   "row": 4,
   "col": 3
-}]
+},{
+  "title": "Security",
+  "img": [
+    "security/avast.svg",
+    "security/avg.svg",
+    "security/avira.svg",
+    "security/kaspersky.svg",
+    "security/malwarebytes.svg",
+    "security/mcafee.svg",
+    "security/norton.svg",
+    "security/trend-micro.svg"
+  ],
+  "row": 4,
+  "col": 4
+},{
+  "title": "Back End Frameworks",
+  "img": [
+    "backend/cakephp.svg",
+    "backend/codeigniter.svg",
+    "backend/django.svg",
+    "backend/express-js.svg",
+    "backend/flask.svg",
+    "backend/laravel.svg",
+    "backend/phalcon.svg",
+    "backend/rails.svg",
+    "backend/spring.svg",
+    "backend/symfony.svg"
+  ],
+  "row": 4,
+  "col": 5
+},{
+  "title": "Computer Brands",
+  "img": [
+    "computer-brands/acer.svg",
+    "computer-brands/apple.svg",
+    "computer-brands/casper.svg",
+    "computer-brands/dell.svg",
+    "computer-brands/grundig.svg",
+    "computer-brands/hp.svg",
+    "computer-brands/lenovo.svg",
+    "computer-brands/microsoft.svg",
+    "computer-brands/samsung.svg",
+    "computer-brands/sony.svg",
+    "computer-brands/toshiba.svg",
+    "computer-brands/vestel.svg"
+  ],
+  "row": 4,
+  "col": 6
+},{
+  "title": "Operation Systems",
+  "img": [
+    "os/archlinux.svg",
+    "os/debian.svg",
+    "os/deepin.svg",
+    "os/elementary-os.svg",
+    "os/fedora.svg",
+    "os/freebsd.svg",
+    "os/fuchsia.svg",
+    "os/kali-linux.svg",
+    "os/linux-mint.svg",
+    "os/mac.svg",
+    "os/manjaro.svg",
+    "os/opensuse.svg",
+    "os/ubuntu.svg",
+    "os/windows.svg"
+  ],
+  "row": 4,
+  "col": 7
+},{
+  "title": "Programming Languages",
+  "img": [
+    "languages/c.svg",
+    "languages/c++.svg",
+    "languages/csharp.svg",
+    "languages/fortran.svg",
+    "languages/go.svg",
+    "languages/java.svg",
+    "languages/javascript.svg",
+    "languages/matlab.svg",
+    "languages/nodejs.svg",
+    "languages/perl.svg",
+    "languages/php.svg",
+    "languages/powershell.svg",
+    "languages/python.svg",
+    "languages/r.svg",
+    "languages/ruby.svg",
+    "languages/typescript.svg"
+  ],
+  "row": 4,
+  "col": 8
+},{
+  "title": "Front End Developments",
+  "img": [
+    "frontend/angular.svg",
+    "frontend/bootstrap.svg",
+    "frontend/bulma.svg",
+    "frontend/css3.svg",
+    "frontend/element-ui.svg",
+    "frontend/emberjs.svg",
+    "frontend/gulp.svg",
+    "frontend/html5.svg",
+    "frontend/materialize.svg",
+    "frontend/material-ui.svg",
+    "frontend/react.svg",
+    "frontend/semantic-ui.svg",
+    "frontend/svelte.svg",
+    "frontend/tailwind-css.svg",
+    "frontend/uikit.svg",
+    "frontend/vue.svg",
+    "frontend/vuetify.svg",
+    "frontend/webpack.svg"
+  ],
+  "row": 4,
+  "col": 9
+},{
+  "title": "IDE",
+  "img": [
+    "ide/anaconda.svg",
+    "ide/appcode.svg",
+    "ide/atom.svg",
+    "ide/brackets.svg",
+    "ide/clion.svg",
+    "ide/eclipse.svg",
+    "ide/goland.svg",
+    "ide/IntelliJ_idea.svg",
+    "ide/notepad++.svg",
+    "ide/phpstorm.svg",
+    "ide/pycharm.svg",
+    "ide/rider.svg",
+    "ide/rubymine.svg",
+    "ide/spyder.svg",
+    "ide/sublime-text.svg",
+    "ide/vim.svg",
+    "ide/visual-studio.svg",
+    "ide/vs-code.svg",
+    "ide/webstorm.svg",
+    "ide/xcode.svg"
+  ],
+  "row": 4,
+  "col": 10
+},{
+  "title": "Microsoft Products",
+  "img": [
+    "microsoft/access.svg",
+    "microsoft/azure.svg",
+    "microsoft/bing.svg",
+    "microsoft/cortana.svg",
+    "microsoft/dot-net-core.svg",
+    "microsoft/edge.svg",
+    "microsoft/excel.svg",
+    "microsoft/groove.svg",
+    "microsoft/infopath.svg",
+    "microsoft/lync.svg",
+    "microsoft/msn.svg",
+    "microsoft/onedrive.svg",
+    "microsoft/onenote.svg",
+    "microsoft/outlook.svg",
+    "microsoft/power-bi.svg",
+    "microsoft/powerpoint.svg",
+    "microsoft/publisher.svg",
+    "microsoft/sway.svg",
+    "microsoft/teams.svg",
+    "microsoft/windows.svg",
+    "microsoft/word.svg",
+    "microsoft/xbox.svg"
+  ],
+  "row": 4,
+  "col": 11
+},{
+  "title": "Google Products",
+  "img": [
+    "google/adsense.svg",
+    "google/analytics.svg",
+    "google/android.svg",
+    "google/chrome.svg",
+    "google/classroom.svg",
+    "google/cloud.svg",
+    "google/docs.svg",
+    "google/drive.svg",
+    "google/duo.svg",
+    "google/firebase.svg",
+    "google/gmail.svg",
+    "google/google.svg",
+    "google/hangouts.svg",
+    "google/maps.svg",
+    "google/my-business.svg",
+    "google/news.svg",
+    "google/photos.svg",
+    "google/play.svg",
+    "google/play-movies.svg",
+    "google/plus.svg",
+    "google/podcasts.svg",
+    "google/slides.svg",
+    "google/translate.svg",
+    "google/youtube.svg",
+    "google/youtube-music.svg"
+  ],
+  "row": 5,
+  "col": 10
+}
+]
