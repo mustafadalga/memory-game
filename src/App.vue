@@ -12,7 +12,7 @@
         <div class="game-wrapper">
           <div class="game">
             <template v-for="(item,index) in createCards" :key="index">
-              <div class="card-wrap" :data-title="getImgTitle(item)">
+              <div class="card-wrap" :data-title="getImgTitle(item)" ref="card_wrap" :style="[setflexBasis,cardHeight]">
                 <div class="card">
                   <div class="card-face card-front-face"  @click="flipCard" >
                     <img :src="front_face_img" alt="" >
@@ -42,35 +42,58 @@ export default {
       front_face_img:null,
       baseUrl:process.env.VUE_APP_BASE_URL,
       levels:[],
-      levelNo:8,
+      levelNo:0,
       firstCard:null,
       secondCard:null,
       lockStatus:false,
+      cardHeight:null,
     }
  },
   created() {
     this.levels=levels
     this.front_face_img=this.getImgUrl("information.svg");
+    console.log()
+
+  },
+  mounted() {
+    this.setCardHeight();
+  },
+  watch: {
+    levelNo: function () {
+      this.setCardHeight();
+    },
   },
   computed:{
     createCards(){
       let cards=[];
-      let row=this.levels[this.levelNo].row;
-      let col=this.levels[this.levelNo].col;
-      let imgCount=this.levels[this.levelNo].img.length;
-      while (cards.length!==row*col){
-        let randomPos = Math.floor(Math.random() * imgCount);
-        let img=this.levels[this.levelNo].img[randomPos];
-        var count = cards.filter(item => item === img).length;
+      while (cards.length!==this.getCardCount){
+        let index = Math.floor(Math.random() * this.getImgCount);
+        let img=this.levels[this.levelNo].img[index];
+        let count = cards.filter(item => item === img).length;
         if (count<2){
-          cards.push(this.levels[this.levelNo].img[randomPos]);
+          cards.push(this.levels[this.levelNo].img[index]);
         }
       }
-      console.log(cards)
       return cards
     },
+    setflexBasis(){
+      return {'flex-basis':'calc('+this.levels[this.levelNo].flexBasis+'% - 1rem)'}
+    },
+    getImgCount(){
+      return this.levels[this.levelNo].img.length;
+    },
+    getCardCount(){
+      let row=this.levels[this.levelNo].row;
+      let col=this.levels[this.levelNo].col;
+      return row*col;
+    }
   },
   methods:{
+    setCardHeight(){
+      let height=this.$refs.card_wrap.offsetWidth;
+      height = height>100 ? 100 : height;
+      this.cardHeight='height:'+height+'px';
+    },
     getImgTitle(pic){
       return pic.split('/').reverse()[0];
     },
@@ -79,9 +102,7 @@ export default {
     },
     checkCardsMatch(){
       if (!(this.firstCard && this.secondCard)) return ;
-      let status= this.firstCard.title==this.secondCard.title ? true : false;
-      console.log(status)
-      return status;
+      return this.firstCard.title==this.secondCard.title ? true : false;
     },
     unflipCards(){
       setTimeout(()=>{
@@ -116,10 +137,15 @@ export default {
       this.secondCard=null;
       this.lockStatus=false
     },
+    increaseLevel(){
+      if(this.levelNo<this.levels.length-1){
+        this.levelNo++;
+      }else{
+        console.log("game completed.")
+      }
+    },
     flipCard(event){
-      this.levelNo++;
-      console.log(event)
-/*      if (this.lockStatus) return ;
+      if (this.lockStatus) return ;
         let item=event.target.parentNode.parentNode;
         item.classList.add('is-flipped')
         this.selectCard(item)
@@ -129,7 +155,7 @@ export default {
           this.resetCards()
         }else{
           this.unflipCards()
-        }*/
+        }
     },
   }
 }
