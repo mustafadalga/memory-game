@@ -9,7 +9,8 @@
     "browsers/internet-explorer.svg"
   ],
   "row": 4,
-  "col": 3
+  "col": 3,
+  "flexBasis": 22.5
 },{
   "title": "Security",
   "img": [
@@ -23,7 +24,8 @@
     "security/trend-micro.svg"
   ],
   "row": 4,
-  "col": 4
+  "col": 4,
+  "flexBasis":  22.5
 },{
   "title": "Back End Frameworks",
   "img": [
@@ -39,7 +41,8 @@
     "backend/symfony.svg"
   ],
   "row": 4,
-  "col": 5
+  "col": 5,
+  "flexBasis": 22.5
 },{
   "title": "Computer Brands",
   "img": [
@@ -57,7 +60,8 @@
     "computer-brands/vestel.svg"
   ],
   "row": 4,
-  "col": 6
+  "col": 6,
+  "flexBasis": 16.6
 },{
   "title": "Operation Systems",
   "img": [
@@ -77,7 +81,8 @@
     "os/windows.svg"
   ],
   "row": 4,
-  "col": 7
+  "col": 7,
+  "flexBasis": 14.2
 },{
   "title": "Programming Languages",
   "img": [
@@ -99,7 +104,8 @@
     "languages/typescript.svg"
   ],
   "row": 4,
-  "col": 8
+  "col": 8,
+  "flexBasis": 12.5
 },{
   "title": "Front End Developments",
   "img": [
@@ -123,7 +129,8 @@
     "frontend/webpack.svg"
   ],
   "row": 4,
-  "col": 9
+  "col": 9,
+  "flexBasis": 11.1
 },{
   "title": "IDE",
   "img": [
@@ -149,7 +156,8 @@
     "ide/xcode.svg"
   ],
   "row": 4,
-  "col": 10
+  "col": 10,
+  "flexBasis": 12.5
 },{
   "title": "Microsoft Products",
   "img": [
@@ -177,7 +185,8 @@
     "microsoft/xbox.svg"
   ],
   "row": 4,
-  "col": 11
+  "col": 11,
+  "flexBasis": 10
 },{
   "title": "Google Products",
   "img": [
@@ -208,6 +217,7 @@
     "google/youtube-music.svg"
   ],
   "row": 5,
-  "col": 10
+  "col": 10,
+  "flexBasis": 10
 }
 ]
