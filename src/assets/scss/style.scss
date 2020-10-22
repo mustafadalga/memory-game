@@ -2,30 +2,25 @@ $electric-violet: #d500f9;
 $white:#ffffff;
 $black:#0c0d0e;
 $silver-rand:#bbc0c4;
-
-@mixin boxShadow(){
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
-}
+$bs-sm:0 1px 6px rgba(0, 0, 0, 0.75);
+$bs-md:0 8px 24px rgba(0,0,0,0.75);
 
 *,*::before,*::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html{
   font-size: 10px;
 }
 body{
   background-color:$electric-violet;
-  color: $black;
+  color: $white;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 img{
   width: 100%;
-  max-width: 100%;
+  max-height: 7rem;
 }
 .container{
   width: 100%;
@@ -34,19 +29,13 @@ img{
   padding: 0 1rem;
 }
 .game-status{
-  margin:1rem 0 3rem;
+  margin:1rem 0 2rem;
   display: flex;
   justify-content: space-evenly;
   font-size: 2rem;
 }
-.text-white{
-  color: $white;
-}
 .border-violet{
   border: 3px solid rgba(213, 0, 249,.5);
-}
-.border-white{
-  border: 3px solid rgba(255,255,255, .5);
 }
 .game-level,.game-score{
   display: flex;
@@ -58,7 +47,7 @@ img{
     text-align: center;
     border-radius: .6rem;
     font-size: 2.5rem;
-    @include boxShadow();
+    box-shadow:$bs-sm;
   }
 }
 
@@ -77,7 +66,6 @@ img{
 }
 .card-wrap{
   flex: 0 1 calc(22.5% - 1rem);
-  height: 100px;
   perspective: 600px;
   background-color: rgba(255,255,255,.2);
 }
@@ -87,12 +75,9 @@ img{
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
-  @include boxShadow();
+  box-shadow: $bs-md;
   border-radius: .6rem;
-  img{
-    max-width: 90%;
-    max-height: 7rem;
-  }
+
 }
 .card-face{
   position: absolute;
@@ -108,6 +93,9 @@ img{
 }
 .card-back-face {
   transform: rotateY( 180deg );
+  img{
+    max-width: 90%;
+  }
 }
 .card.flip {
   transform: rotateY(180deg);
@@ -137,8 +125,9 @@ img{
   max-width: 100rem;
   margin: 8rem auto 0;
   border-radius: .6rem;
-  background-color:$white;
-  @include boxShadow();
+  background-color:$electric-violet;
+  border: .6rem solid $white;
+  box-shadow: $bs-md;
   transition: all .3s ease-out;
   transform: translate(0,-100rem);
 }
@@ -163,7 +152,8 @@ img{
   font-size: 2rem;
   text-align: center;
   p{
-    margin-bottom: 3rem;
+    padding:3rem 5rem;
+
   }
 }
 .modal-footer{
@@ -185,7 +175,7 @@ img{
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  @include boxShadow();
+  box-shadow: $bs-sm;
   &:hover{
     .btn-arrow{
       padding-left: 1rem;

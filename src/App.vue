@@ -1,7 +1,7 @@
 <template>
 
   <div class="container">
-    <div class="game-status text-white">
+    <div class="game-status">
       <div class="game-level">
         <h5>Level</h5>
         <span >{{ levelNo+1 }}</span>
@@ -53,7 +53,7 @@ export default {
       lockStatus:false,
       cardHeight:null,
       flippedCartCount:0,
-      modalStatus:true,
+      modalStatus:false,
     }
  },
   created() {
@@ -62,7 +62,6 @@ export default {
     window.addEventListener("resize", this.setCardHeight);
   },
   mounted() {
-    localStorage.clear()
     this.setCardHeight();
     this.getLocalStorage();
   },
