@@ -8,8 +8,6 @@
     "browsers/opera.svg",
     "browsers/internet-explorer.svg"
   ],
-  "row": 4,
-  "col": 3,
   "flexBasis": 22.5
 },{
   "title": "Security",
@@ -23,8 +21,6 @@
     "security/norton.svg",
     "security/trend-micro.svg"
   ],
-  "row": 4,
-  "col": 4,
   "flexBasis":  22.5
 },{
   "title": "Back End Frameworks",
@@ -40,8 +36,6 @@
     "backend/spring.svg",
     "backend/symfony.svg"
   ],
-  "row": 4,
-  "col": 5,
   "flexBasis": 22.5
 },{
   "title": "Computer Brands",
@@ -59,8 +53,6 @@
     "computer-brands/toshiba.svg",
     "computer-brands/vestel.svg"
   ],
-  "row": 4,
-  "col": 6,
   "flexBasis": 16.6
 },{
   "title": "Operation Systems",
@@ -80,8 +72,6 @@
     "os/ubuntu.svg",
     "os/windows.svg"
   ],
-  "row": 4,
-  "col": 7,
   "flexBasis": 14.2
 },{
   "title": "Programming Languages",
@@ -103,8 +93,6 @@
     "languages/ruby.svg",
     "languages/typescript.svg"
   ],
-  "row": 4,
-  "col": 8,
   "flexBasis": 12.5
 },{
   "title": "Front End Developments",
@@ -128,8 +116,6 @@
     "frontend/vuetify.svg",
     "frontend/webpack.svg"
   ],
-  "row": 4,
-  "col": 9,
   "flexBasis": 11.1
 },{
   "title": "IDE",
@@ -155,8 +141,6 @@
     "ide/webstorm.svg",
     "ide/xcode.svg"
   ],
-  "row": 4,
-  "col": 10,
   "flexBasis": 12.5
 },{
   "title": "Microsoft Products",
@@ -184,8 +168,6 @@
     "microsoft/word.svg",
     "microsoft/xbox.svg"
   ],
-  "row": 4,
-  "col": 11,
   "flexBasis": 10
 },{
   "title": "Google Products",
@@ -216,8 +198,6 @@
     "google/youtube.svg",
     "google/youtube-music.svg"
   ],
-  "row": 5,
-  "col": 10,
   "flexBasis": 10
 }
 ]
