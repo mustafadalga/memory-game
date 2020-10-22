@@ -25,15 +25,20 @@
             </template>
           </div>
         </div>
+      <modal></modal>
       </div>
 
 </template>
 
 <script>
 import levels from '@/assets/json/levels.json'
+import modal from "@/components/Modal";
 
 export default {
   name: 'App',
+  components:{
+    modal
+  },
  data(){
     return{
       status:false,
