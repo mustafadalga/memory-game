@@ -16,7 +16,7 @@
             <template v-for="(item,index) in createCards" :key="index">
               <div class="card-wrap" :data-title="getImgTitle(item)" ref="card_wrap" :style="[setflexBasis,cardHeight]">
                 <div class="card" :ref="'card' + index">
-                  <div class="card-face card-front-face"  @click="flipCard" >
+                  <div class="card-face card-front-face"  @click="flipCard">
                     <img :src="front_face_img" alt="" >
                   </div>
                   <div class="card-face card-back-face">
@@ -27,7 +27,7 @@
             </template>
           </div>
         </div>
-      <modal :level="levelNo" :score="score" @modalToggle="modalToggle" @increaseLevel="increaseLevel" :class="modalStatus ? 'open':''"></modal>
+      <modal :levelNo="levelNo" :levelLength="levels.length-1" :score="score" @modalToggle="modalToggle" @increaseLevel="increaseLevel" @restartGame="restartGame" :class="modalStatus ? 'open':''"></modal>
       </div>
 
 </template>
@@ -53,14 +53,14 @@ export default {
       lockStatus:false,
       cardHeight:null,
       flippedCartCount:0,
-      modalStatus:false,
+      modalStatus:true,
     }
  },
   created() {
     this.levels=levels
     this.front_face_img=this.getImgUrl("information.svg");
+    window.addEventListener("resize", this.setCardHeight);
   },
-
   mounted() {
     localStorage.clear()
     this.setCardHeight();
@@ -95,6 +95,34 @@ export default {
     }
   },
   methods:{
+    flipCard(event){
+      if (this.lockStatus) return ;
+      let item=event.target.parentNode.parentNode;
+      if (this.firstCard && item===this.firstCard.card) return ;
+
+      item.classList.add('flip')
+      this.selectCard(item)
+
+      if (!this.isSelectedCards()) return ;
+      if (this.checkCardsMatch()){
+        this.increaseFlippedCart()
+        this.increaseScore()
+        this.isLevelCompleted()
+        this.resetCards()
+      }else{
+        this.decreaseScore()
+        this.unflipSelectedCards()
+      }
+    },
+    restartGame(){
+      this.levelNo=0;
+      this.score=0
+      this.clearStorage();
+      this.resetCards()
+      this.resetFlippedCart()
+      this.unflipAllCards()
+      this.modalToggle()
+    },
     modalToggle(){
       this.modalStatus=!this.modalStatus
     },
@@ -116,6 +144,9 @@ export default {
     getLocalStorage(){
       this.levelNo = parseInt(localStorage.getItem('levelNo')) || this.levelNo;
       this.score = parseInt(localStorage.getItem('score')) || this.score;
+    },
+    clearStorage(){
+      localStorage.clear();
     },
     checkCardsMatch(){
       if (!(this.firstCard && this.secondCard)) return ;
@@ -162,12 +193,11 @@ export default {
     increaseLevel(){
       if(this.levelNo<this.levels.length-1){
         this.resetFlippedCart()
+        this.resetCards()
         this.levelNo++
         setTimeout(()=>{
           this.modalToggle()
         },250)
-      }else{
-        console.log("game completed.")
       }
     },
     increaseScore(){
@@ -189,26 +219,7 @@ export default {
         this.modalToggle()
       }
     },
-    flipCard(event){
-      if (this.lockStatus) return ;
-      let item=event.target.parentNode.parentNode;
-      if (this.firstCard && item===this.firstCard.card) return ;
 
-      item.classList.add('flip')
-      this.selectCard(item)
-
-      if (!this.isSelectedCards()) return ;
-
-        if (this.checkCardsMatch()){
-          this.increaseFlippedCart()
-          this.increaseScore()
-          this.isLevelCompleted()
-          this.resetCards()
-        }else{
-          this.decreaseScore()
-          this.unflipSelectedCards()
-        }
-    },
   }
 }
 </script>
