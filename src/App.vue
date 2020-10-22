@@ -4,11 +4,11 @@
     <div class="game-status text-white">
       <div class="game-level">
         <h5>Level</h5>
-        <span class="border-white">{{ levelNo+1 }}</span>
+        <span >{{ levelNo+1 }}</span>
       </div>
       <div class="game-score">
         <h5>Score</h5>
-        <span class="border-white">14500</span>
+        <span >{{ score }}</span>
       </div>
     </div>
     <div class="game-wrapper">
@@ -60,8 +60,11 @@ export default {
     this.levels=levels
     this.front_face_img=this.getImgUrl("information.svg");
   },
+
   mounted() {
+    localStorage.clear()
     this.setCardHeight();
+    this.getLocalStorage();
   },
   watch: {
     levelNo: function () {
@@ -105,6 +108,14 @@ export default {
     },
     getImgUrl(pic) {
       return require(`./assets/img/${pic}`)
+    },
+    setLocalStorage(){
+      localStorage.setItem('levelNo',this.levelNo+1);
+      localStorage.setItem('score',this.score)
+    },
+    getLocalStorage(){
+      this.levelNo = parseInt(localStorage.getItem('levelNo')) || this.levelNo;
+      this.score = parseInt(localStorage.getItem('score')) || this.score;
     },
     checkCardsMatch(){
       if (!(this.firstCard && this.secondCard)) return ;
@@ -150,18 +161,32 @@ export default {
     },
     increaseLevel(){
       if(this.levelNo<this.levels.length-1){
-        this.unflipAllCards();
+        this.resetFlippedCart()
+        this.levelNo++
         setTimeout(()=>{
-          this.levelNo++
-        },1500)
-        console.log("sonraki seviye")
+          this.modalToggle()
+        },250)
       }else{
         console.log("game completed.")
       }
     },
+    increaseScore(){
+      this.score+=10;
+    },
+    decreaseScore(){
+      this.score-=1;
+    },
+    increaseFlippedCart(){
+      this.flippedCartCount++;
+    },
+    resetFlippedCart(){
+      this.flippedCartCount=0
+    },
     isLevelCompleted(){
       if (this.flippedCartCount===this.getImgCount){
-        this.increaseLevel()
+        this.setLocalStorage()
+        this.unflipAllCards()
+        this.modalToggle()
       }
     },
     flipCard(event){
@@ -175,10 +200,12 @@ export default {
       if (!this.isSelectedCards()) return ;
 
         if (this.checkCardsMatch()){
-          this.flippedCartCount++;
+          this.increaseFlippedCart()
+          this.increaseScore()
           this.isLevelCompleted()
           this.resetCards()
         }else{
+          this.decreaseScore()
           this.unflipSelectedCards()
         }
     },
