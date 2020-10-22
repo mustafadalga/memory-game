@@ -9,11 +9,11 @@
         <span>124</span>
       </div>
     </div>
-        <div class="game-wrapper">
+    <div class="game-wrapper">
           <div class="game">
             <template v-for="(item,index) in createCards" :key="index">
               <div class="card-wrap" :data-title="getImgTitle(item)" ref="card_wrap" :style="[setflexBasis,cardHeight]">
-                <div class="card">
+                <div class="card" :ref="'card' + index">
                   <div class="card-face card-front-face"  @click="flipCard" >
                     <img :src="front_face_img" alt="" >
                   </div>
@@ -23,8 +23,6 @@
                 </div>
               </div>
             </template>
-
-
           </div>
         </div>
       </div>
@@ -47,13 +45,12 @@ export default {
       secondCard:null,
       lockStatus:false,
       cardHeight:null,
+      flippedCartCount:0
     }
  },
   created() {
     this.levels=levels
     this.front_face_img=this.getImgUrl("information.svg");
-    console.log()
-
   },
   mounted() {
     this.setCardHeight();
@@ -83,9 +80,7 @@ export default {
       return this.levels[this.levelNo].img.length;
     },
     getCardCount(){
-      let row=this.levels[this.levelNo].row;
-      let col=this.levels[this.levelNo].col;
-      return row*col;
+      return this.getImgCount*2;
     }
   },
   methods:{
@@ -104,10 +99,15 @@ export default {
       if (!(this.firstCard && this.secondCard)) return ;
       return this.firstCard.title==this.secondCard.title ? true : false;
     },
-    unflipCards(){
+    unflipAllCards(){
+      for (let index=0;index<this.getCardCount;index++){
+        this.$refs['card'+index].classList.remove('flip')
+      }
+    },
+    unflipSelectedCards(){
       setTimeout(()=>{
-        this.firstCard.card.classList.remove('is-flipped')
-        this.secondCard.card.classList.remove('is-flipped')
+        this.firstCard.card.classList.remove('flip')
+        this.secondCard.card.classList.remove('flip')
         this.resetCards()
       },1500)
     },
@@ -139,22 +139,37 @@ export default {
     },
     increaseLevel(){
       if(this.levelNo<this.levels.length-1){
-        this.levelNo++;
+        this.unflipAllCards();
+        setTimeout(()=>{
+          this.levelNo++
+        },1500)
+        console.log("sonraki seviye")
       }else{
         console.log("game completed.")
       }
     },
+    isLevelCompleted(){
+      if (this.flippedCartCount===this.getImgCount){
+        this.increaseLevel()
+      }
+    },
     flipCard(event){
       if (this.lockStatus) return ;
-        let item=event.target.parentNode.parentNode;
-        item.classList.add('is-flipped')
-        this.selectCard(item)
-        if (!this.isSelectedCards()) return ;
+
+      let item=event.target.parentNode.parentNode;
+      if (this.firstCard && item===this.firstCard.card) return ;
+
+      item.classList.add('flip')
+      this.selectCard(item)
+
+      if (!this.isSelectedCards()) return ;
 
         if (this.checkCardsMatch()){
+          this.flippedCartCount++;
+          this.isLevelCompleted()
           this.resetCards()
         }else{
-          this.unflipCards()
+          this.unflipSelectedCards()
         }
     },
   }
