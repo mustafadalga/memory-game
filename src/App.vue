@@ -1,12 +1,14 @@
 <template>
 
   <div class="container">
-    <div class="game-status">
+    <div class="game-status text-white">
       <div class="game-level">
-        <span>Level {{ levelNo+1 }}</span>
+        <h5>Level</h5>
+        <span class="border-white">{{ levelNo+1 }}</span>
       </div>
       <div class="game-score">
-        <span>124</span>
+        <h5>Score</h5>
+        <span class="border-white">14500</span>
       </div>
     </div>
     <div class="game-wrapper">
@@ -25,7 +27,7 @@
             </template>
           </div>
         </div>
-      <modal></modal>
+      <modal :level="levelNo" :score="score" @modalToggle="modalToggle" @increaseLevel="increaseLevel" :class="modalStatus ? 'open':''"></modal>
       </div>
 
 </template>
@@ -43,14 +45,15 @@ export default {
     return{
       status:false,
       front_face_img:null,
-      baseUrl:process.env.VUE_APP_BASE_URL,
       levels:[],
       levelNo:0,
+      score:0,
       firstCard:null,
       secondCard:null,
       lockStatus:false,
       cardHeight:null,
-      flippedCartCount:0
+      flippedCartCount:0,
+      modalStatus:false,
     }
  },
   created() {
@@ -89,6 +92,9 @@ export default {
     }
   },
   methods:{
+    modalToggle(){
+      this.modalStatus=!this.modalStatus
+    },
     setCardHeight(){
       let height=this.$refs.card_wrap.offsetWidth;
       height = height>100 ? 100 : height;
@@ -160,7 +166,6 @@ export default {
     },
     flipCard(event){
       if (this.lockStatus) return ;
-
       let item=event.target.parentNode.parentNode;
       if (this.firstCard && item===this.firstCard.card) return ;
 

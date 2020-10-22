@@ -1,19 +1,26 @@
+$electric-violet: #d500f9;
+$white:#ffffff;
+$black:#0c0d0e;
+$silver-rand:#bbc0c4;
+
+@mixin boxShadow(){
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+
 *,*::before,*::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-:root{
---electric-violet:#d500f9;
-  --white:#ffffff;
-  --black:#0c0d0e;
-  --silver-rand:#bbc0c4;
-}
+
 html{
   font-size: 10px;
 }
 body{
-  background-color:var(--electric-violet);
+  background-color:$electric-violet;
+  color: $black;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 img{
@@ -32,6 +39,29 @@ img{
   justify-content: space-evenly;
   font-size: 2rem;
 }
+.text-white{
+  color: $white;
+}
+.border-violet{
+  border: 3px solid rgba(213, 0, 249,.5);
+}
+.border-white{
+  border: 3px solid rgba(255,255,255, .5);
+}
+.game-level,.game-score{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  span{
+    width:10rem;
+    margin-top: .5rem;
+    text-align: center;
+    border-radius: .6rem;
+    font-size: 2.5rem;
+    @include boxShadow();
+  }
+}
+
 .game-wrapper{
   display: flex;
   align-items: center;
@@ -57,9 +87,7 @@ img{
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+  @include boxShadow();
   border-radius: .6rem;
   img{
     max-width: 90%;
@@ -93,17 +121,26 @@ img{
   height: 100%;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-out;
+  &.open{
+    visibility: visible;
+    opacity: 1;
+    .modal-content{
+      transform: translateY(0);
+    }
+  }
 }
 .modal-content{
   width: 80%;
   max-width: 100rem;
   margin: 8rem auto 0;
   border-radius: .6rem;
-  color: var(--black);
-  background-color:var(--white);
-  -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+  background-color:$white;
+  @include boxShadow();
+  transition: all .3s ease-out;
+  transform: translate(0,-100rem);
 }
 .modal-header{
   padding: 1rem;
@@ -119,13 +156,15 @@ img{
   cursor: pointer;
   font-size: 3rem;
 }
-
 .modal-body{
-  padding: 1rem;
-  border-top: 1px solid var(--silver-rand);
-  border-bottom: 1px solid var(--silver-rand);
-  font-size: 1.5rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid $silver-rand;
+  border-bottom: 1px solid $silver-rand;
+  font-size: 2rem;
   text-align: center;
+  p{
+    margin-bottom: 3rem;
+  }
 }
 .modal-footer{
   padding: 1rem;
@@ -140,14 +179,17 @@ img{
   font-size: 1.5rem;
   border-radius:.3rem;
   transition: all 0.5s;
-  background-color: var(--electric-violet);
-  color: var(--white);
+  background-color:$electric-violet;
+  color: $white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  &:hover .btn-arrow{
-    padding-left: 1rem;
+  @include boxShadow();
+  &:hover{
+    .btn-arrow{
+      padding-left: 1rem;
+    }
   }
 }
 .btn-arrow{
