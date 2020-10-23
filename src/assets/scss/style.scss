@@ -91,6 +91,7 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .card-back-face {
   transform: rotateY( 180deg);
