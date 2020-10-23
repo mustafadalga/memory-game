@@ -192,11 +192,11 @@ export default {
     increaseLevel(){
       if(this.levelNo<this.levels.length-1){
         this.resetFlippedCart()
-        this.resetCards()
         this.levelNo++
+
         setTimeout(()=>{
           this.modalToggle()
-        },250)
+        },100)
       }
     },
     increaseScore(){
@@ -213,12 +213,11 @@ export default {
     },
     isLevelCompleted(){
       if (this.flippedCartCount===this.getImgCount){
-        this.setLocalStorage()
+        this.levelNo===this.levels.length-1 ? this.clearStorage() : this.setLocalStorage();
         this.unflipAllCards()
         this.modalToggle()
       }
     },
-
   }
 }
 </script>
