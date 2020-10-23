@@ -77,6 +77,7 @@ img{
   transform-style: preserve-3d;
   box-shadow: $bs-md;
   border-radius: .6rem;
+  transform: rotateY(180deg);
 
 }
 .card-face{
@@ -92,7 +93,7 @@ img{
   align-items: center;
 }
 .card-back-face {
-  transform: rotateY( 180deg );
+  transform: rotateY( 180deg);
   img{
     max-width: 90%;
   }
