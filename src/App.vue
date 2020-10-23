@@ -46,7 +46,7 @@ export default {
       status:false,
       front_face_img:null,
       levels:[],
-      levelNo:7,
+      levelNo:0,
       score:0,
       firstCard:null,
       secondCard:null,
